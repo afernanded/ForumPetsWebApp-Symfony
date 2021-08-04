@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nuevo Post!{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+
+<div class="example-wrapper">
+    <div class="container h-100">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-6 bg-white rounded my-3 p-5">
+                <h1>Nuevo post</h1>
+                {{ form(formulario) }}
+            </div>
+        </div>
+    </div>
+
+    {% for message in app.flashes('Exito') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

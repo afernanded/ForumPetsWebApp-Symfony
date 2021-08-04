@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ver Post!{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    {% set likesDeEstePost = post.likes | split (',') %}
+    <div class="container bg-white rounded my-3 p-4">
+        <div class="d-flex bd-highlight">
+            <div class="p-2 flex-grow-1 bd-highlight">
+                <h3>{{ post.titulo }}</h3>
+                <div class="my-3 like" style="color:#3282b8;" onclick="{% if app.user.id in likesDeEstePost %} noMeGusta({{ post.getId() }})
+                {% else %} meGusta({{ post.getId() }}){% endif %}">
+                    <i class="fa fa-thumbs-up"></i><strong>
+                        {% if app.user.id in likesDeEstePost %}
+                            Te gusta esto - Likes: {{ likesDeEstePost | length }}
+                        {% else %}
+                            ¿Te gusta? - Likes: {{ likesDeEstePost | length }}
+                        {% endif %}
+                    </strong>
+                </div>
+                <div style="color:#c3f584;">
+                    <i class="far fa-clock"></i> <strong>{{ post.fechaPublicacion | date }}</strong>
+                </div>
+            </div>
+            <div class="p-2 bd-highlight">
+                <div class="align-self-center">
+                    <img class="rounded" src="{{ asset ('uploads/images/'~post.foto) }}" width="150px">
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+        <div class="text-justify my-3">
+            {{ post.contenido }}
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <div class="container">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-6 bg-white rounded my-3 p-5">
+                            {{ form(formulario) }}
+                        </div>
+                    </div>
+                </div>
+            </blockquote>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <h1>Comentarios</h1>
+                <div class="card">
+                {% for comentario in arrayComentarios %}
+                    <h4>{{ comentario.user.nombre }}:</h4>
+                    <p>{{ comentario.comentario }}</p>
+                {% endfor %}
+                </div>
+            </blockquote>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {callback: 'fos.Router.setData'}) }}"></script>
+    <script src="{{ asset('js/ajax-call.js') }}"></script>
+{% endblock %}

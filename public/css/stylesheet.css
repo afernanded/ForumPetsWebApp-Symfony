@@ -1,0 +1,103 @@
+@font-face {
+    font-family: 'signikabold';
+    src: url('../fonts/signika-bold-webfont.woff2') format('woff2'),
+         url('../fonts/signika-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'signikaregular';
+    src: url('../fonts/signika-regular-webfont.woff2') format('woff2'),
+    url('../fonts/signika-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'remachine_script_personal_uRg';
+    src: url('../fonts/remachinescript_personal_use-webfont.woff2') format('woff2'),
+    url('../fonts/remachinescript_personal_use-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html, body {
+    background-image: url("../img/UI.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    font-family: signikaregular;
+    width: 100%;
+    height: 100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: signikabold;
+    color: #5aa3ba;
+}
+
+.navbar{
+    background-color: #0a1717 !important;
+    font-family: signikabold;
+    font-size: 1.7em;
+}
+
+.navbar-brand{
+    font-family: remachine_script_personal_uRg;
+    font-size: 2em;
+    color: #e8582d !important;
+}
+
+.nav-link{
+    color: #e8582d !important;
+}
+
+.fa-user, .bg-yellow {
+    color: #e8582d ;
+    font-size: 1.5em;
+}
+.fa-clock, .bg-green{
+    color: #0a5748;
+    font-size: 1.5em;
+}
+
+.cursor:hover{
+    cursor: pointer;
+}
+
+table {
+    display: flex;
+    justify-content: center;
+}
+
+.navigation{
+    display: flex;
+    justify-content: center;
+}
+
+table{
+    width: 100%;
+    margin-top: 15px;
+}
+
+table th,
+table td{
+    text-align: center;
+}
+
+#comentarios h6 {
+    text-align: center;
+}
+
+#comentariosIndex2 {
+    background-color: #1d1d1d;
+}
+
+#contenedorIndex {
+    background-color: #1d1d1d;
+    text-align: center;
+}
+
+
